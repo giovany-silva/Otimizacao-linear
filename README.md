@@ -1,3 +1,3 @@
 # Otimiza-o-Combinat-ria
  
- Atividades  densenvolvidas na disciplina de Introdução à Otimização Linear
+This repository contains codes involving code optimization and performance. Some codes were written in C language and others in C++ language
