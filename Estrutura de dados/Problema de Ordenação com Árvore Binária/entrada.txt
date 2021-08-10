@@ -1,0 +1,14 @@
+i Camille 20187 ADM
+i Diana 20183 CCO
+n Camille
+n Bardo
+i Ashe 20182 CCO
+1
+r Ashe
+s 20187
+i Bardo 20181 CCO
+i Elise 20188 SIN
+i Fiora 20184 SIN
+A
+m 20181
+x
