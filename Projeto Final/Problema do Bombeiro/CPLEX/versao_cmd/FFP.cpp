@@ -41,32 +41,15 @@ int main(int argc, char * argv[]){
 				  bombeiro.add(B[i][j]);
 				}*/
 			}
-			/*for(int i = 0; i < nf; i++){
-				B.add(IloIntVarArray(env,k, 0,1));
-				//for(int j = 0; j < nf; j++){
-				//  bombeiro.add(B[i][j]);
-			  //	}
-			}*/
+
       for(int i = 0; i < nv; i++){
 				D.add(IloIntVarArray(env, T, 0, 1));
 			}
       for(int i = 0; i < nf; i++){
 				F.add(IloIntVarArray(env, T, 0, 1));
 			}
-			/*for(int i = 0; i < nv; i++){
-				D.add(IloIntVarArray(env, 2, 0,1));
-				Q.add(IloIntVarArray(env, 2, 0,1));
 
-				//for(int j = 0; j < nv; j++){
-				//  defendido.add(D[i][j]);
-				//  queimado.add(Q[i][j]);
-				//}
-			}*/
-			IloModel model(env);
-			//model.add(Q[fs][1]==1);
-		/*for(pair<int,int> aresta:grafo)	{
-			model.add(Q[aresta.first][0]+D[aresta.first][0]-Q[aresta.second][1]>=0);
-		}*/
+      IloModel model(env);
 
     //RESTRICAO 2, SE v_linha esta queimando em t-1, 
     //o vizinho v esta defendido ou queimando em t
@@ -149,32 +132,6 @@ int main(int argc, char * argv[]){
 		// maximizar |V|- total de vértices queimados
 		model.add(IloMaximize(env, nv - queimado_final));
 
-		/*for(int u=0;u<nv;u++){
-		   model.add(Q[u][0]+D[u][0]<=1);
-		   model.add(Q[u][0]-Q[u][1]>=0);
-		   model.add(D[u][0]-D[u][1]>=0);
-		}
-		//somatorio (dvt -dvt-1)<= somatorio (fi,t)
-		//somatorio (dvt -dvt-1)
-		IloExpr expr(env),expr2(env),expr3(env);
-		for(IloInt i = 0; i < nv; i++){
-			expr += D[i][0] - D[i][1];
-		}
-		//somatorio (fi,t)
-		for(IloInt i = 0; i < nf; i++){
-			expr2 += B[i][0];
-		}
-		model.add(expr <=expr2);
-		//somatorio (t'=t até t+k-1)fit'<=(K-1)|1<=t<=T-K
-		for(IloInt i = 0; i <nf; i++){
-		  model.add(IloSum(B[i])<=(k));
-		}
-		for(IloInt i = 0; i <nf; i++){
-		    expr3+=Q[i][0];
-		}
-		// maximizar |V|- total de vértices queimados
-		model.add(IloMaximize(env, nv-expr3));
-  */
 	//resolver e pegar quantos  e quais vertices foram defendidos...
         IloCplex solver(model);
         //solver.setParam(IloCplex::Param::MIP::Tolerances::MIPGap, 0.00001);
@@ -184,13 +141,7 @@ int main(int argc, char * argv[]){
         cout << "Status solucao: " << solver.getStatus() << endl;
         cout << "Valor solucao:  " << std::fixed << solver.getObjValue() << endl;
 		saida.open(argv[2]);
-		//P Ã© um array numÃ©rico com n posiÃ§Ãµes
-		//IloNumArray P(env, n);
-		//IloNumArray V(env, n);
 
-		/*for(IloInt i = 0; i < n; i++){
-		  entrada >> V[i] >> P[i];
-		}*/
     for(IloInt t = 1; t < T; t++){
       cout << "defendidos em " << t << ":" << endl;
       for(IloInt v = 0; v < nv; v++){
