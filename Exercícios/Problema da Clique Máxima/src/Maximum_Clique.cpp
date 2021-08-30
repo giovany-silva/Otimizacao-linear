@@ -90,11 +90,7 @@ libera();
 
 void  printa_clique()
 {
-  //arq2=fopen("stdout.txt","w");
-      /*  if(arq2==NULL){
-	   cout<<"nao foi possivel cria o arquivo-saida!"<<endl;
-	   exit(1);
-        }*/
+
 //Printa a Clique
 
 	
@@ -109,7 +105,6 @@ void  printa_clique()
 
 
 
-//fclose(arq2);
 
 }
 void copia(vector<int>& vet1, vector<int>& vet2)
