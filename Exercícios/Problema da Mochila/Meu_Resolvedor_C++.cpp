@@ -53,11 +53,6 @@ void read_instance(unsigned *n, itype *K, itype **v, itype **w, string filename)
   entrada.close();
 }
 
-
-//O meu criterio guloso eh escolher os itens na ordem em que sao dados na entrada
-//quando um item nao couber mais na mochila eu paro de colocar e devolvo a solucao
-//Obviamente esse criterio eh beeeeem fraco.
-
 void solve_knap_guloso(itype n, itype K, itype *v, itype *w, itype *obj, int *x){
   //Se quiser voce pode apenas modificar essa funcao para codificar o seu resolvedor
 
